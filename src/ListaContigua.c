@@ -73,15 +73,32 @@ void insertarElemento(ListaContigua *lista, int posicion, int elemento){
 }
 
 void eliminarUltimoElemento(ListaContigua *lista){
-    if(lista->n == 0){
-        printf("La lista esta vacia");
+    eliminar(lista, lista->n);
+}
+
+void eliminar(ListaContigua *lista, int posicion){
+    if (posicion < 0 || posicion > lista->n){
+        printf("Posicion no valida");
         return;
     }
-
-    lista->n--;
-
+    int i;
+    for(i = posicion; i < lista->n; i++){
+        lista->array[i] = lista->array[i+1];
+    }
+    lista->n -= 1;
     if((lista->capacidad - lista->n) >= 2*INCREMENTO){
         ampliarCapacidad(lista, -INCREMENTO);
         return;
+    }
+}
+
+void concatenar(ListaContigua *lista1, ListaContigua *lista2){
+    ampliarCapacidad(lista1, lista2->capacidad);
+    int temp = lista1->n;
+    lista1->n += lista2->n;
+    int temp2 = 0;
+    for(int i = temp+1; i<lista1->n; i++){
+        lista1->array[i] = lista2->array[temp2];
+        temp2 += 1;
     }
 }

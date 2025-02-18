@@ -25,4 +25,8 @@ void insertarElemento(ListaContigua *lista, int posicion, int elemento);
 
 void eliminarUltimoElemento(ListaContigua *lista);
 
+void eliminar(ListaContigua *lista, int posicion);
+
+void concatenar(ListaContigua *lista1, ListaContigua *lista2);
+
 #endif // LISTA_CONTIGUA_H
