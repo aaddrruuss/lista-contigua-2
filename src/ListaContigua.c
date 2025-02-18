@@ -52,14 +52,7 @@ void ampliarCapacidad(ListaContigua *lista, int nuevaCapacidad){
 }
 
 void insertarElementoFinal(ListaContigua *lista, int elemento){
-    if(lista->n != lista->capacidad){
-        lista->array[lista->n] = elemento;
-        lista->n++;
-        return;
-    }
-    ampliarCapacidad(lista, INCREMENTO);
-    lista->array[lista->n] = elemento;
-    lista->n++;
+    insertarElemento(lista, lista->n, elemento);
 }
 
 void insertarElemento(ListaContigua *lista, int posicion, int elemento){
