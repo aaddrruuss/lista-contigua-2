@@ -19,7 +19,9 @@ void modificarElemento(ListaContigua *lista, int posicion, int nuevoValor);
 
 void ampliarCapacidad(ListaContigua *lista, int nuevaCapacidad);
 
-void insertarElemento(ListaContigua *lista, int elemento);
+void insertarElementoFinal(ListaContigua *lista, int elemento);
+
+void insertarElemento(ListaContigua *lista, int posicion, int elemento);
 
 void eliminarUltimoElemento(ListaContigua *lista);
 

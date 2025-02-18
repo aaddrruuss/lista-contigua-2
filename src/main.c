@@ -10,14 +10,15 @@ int main(){
     imprimirLista(lista);
     printf("Rellenando ListaContigua:\n");
     for(int i = 0 ; i < 12 ; i++){
-        insertarElemento(&lista, i);
+        insertarElementoFinal(&lista, i);
         imprimirLista(lista);
     }
+    insertarElemento(&lista, 12, 300);
     //Formas de imprimir elemento de una posicion concreta:
     // Metodo 1:
     printf("Elemento 0: %d\n", elementoPosicion(lista, 0));
-    printf("Elemento 11: %d\n", elementoPosicion(lista, 11));
-
+    printf("Elemento 5: %d\n", elementoPosicion(lista, 5));
+    imprimirLista(lista);
     // Metodo 2: (creando una nueva funcion que unicamente imprime el elemento de una posicion dada como parametro)
     imprimirElementoLista(lista, 0);
     imprimirElementoLista(lista, 11);
@@ -34,7 +35,7 @@ int main(){
     
     for(int i = 100; i < 104; i++){
         printf("Insertamos %d al final. Nueva ListaContigua:\n", i);
-        insertarElemento(&lista, i);
+        insertarElementoFinal(&lista, i);
         imprimirLista(lista);
     }
     return 0;

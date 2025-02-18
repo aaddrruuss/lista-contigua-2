@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <math.h>
 #include "ListaContigua.h"
 
@@ -50,7 +51,7 @@ void ampliarCapacidad(ListaContigua *lista, int nuevaCapacidad){
     }
 }
 
-void insertarElemento(ListaContigua *lista, int elemento){
+void insertarElementoFinal(ListaContigua *lista, int elemento){
     if(lista->n != lista->capacidad){
         lista->array[lista->n] = elemento;
         lista->n++;
@@ -59,6 +60,23 @@ void insertarElemento(ListaContigua *lista, int elemento){
     ampliarCapacidad(lista, INCREMENTO);
     lista->array[lista->n] = elemento;
     lista->n++;
+}
+
+void insertarElemento(ListaContigua *lista, int posicion, int elemento){
+    if (posicion < 0 || posicion > lista->n){
+        printf("Posicion no valida");
+        return;
+    }
+    
+    if (lista->n == lista->capacidad){
+        ampliarCapacidad(lista, INCREMENTO);
+    }
+
+    lista->n += 1;
+    for (int i = lista->n; i > posicion; i--){
+        lista->array[i] = lista->array[i-1];
+    }
+    lista->array[posicion] = elemento;
 }
 
 void eliminarUltimoElemento(ListaContigua *lista){
