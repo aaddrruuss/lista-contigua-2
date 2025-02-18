@@ -97,7 +97,7 @@ void concatenar(ListaContigua *lista1, ListaContigua *lista2){
     int temp = lista1->n;
     lista1->n += lista2->n;
     int temp2 = 0;
-    for(int i = temp+1; i<lista1->n; i++){
+    for(int i = temp; i<lista1->n; i++){
         lista1->array[i] = lista2->array[temp2];
         temp2 += 1;
     }
@@ -107,7 +107,7 @@ int buscar(ListaContigua lista, int elemento){
     int i;
     for(i = 0; i < lista.n; i++){
         if(lista.array[i] == elemento){
-            return lista.array[i];
+            return i;
         }
     }
     return -1;
