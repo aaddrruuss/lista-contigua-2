@@ -102,3 +102,13 @@ void concatenar(ListaContigua *lista1, ListaContigua *lista2){
         temp2 += 1;
     }
 }
+
+int buscar(ListaContigua lista, int elemento){
+    int i;
+    for(i = 0; i < lista.n; i++){
+        if(lista.array[i] == elemento){
+            return lista.array[i];
+        }
+    }
+    return -1;
+}

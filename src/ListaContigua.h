@@ -29,4 +29,6 @@ void eliminar(ListaContigua *lista, int posicion);
 
 void concatenar(ListaContigua *lista1, ListaContigua *lista2);
 
+int buscar(ListaContigua lista, int elemento);
+
 #endif // LISTA_CONTIGUA_H
